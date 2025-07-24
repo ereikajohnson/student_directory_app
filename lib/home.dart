@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 15, 14, 14),
         foregroundColor: const Color.fromARGB(255, 255, 201, 7),
-        title: Text("Student Directory"),
+        title: Text("Student Directory "),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 15, 57, 128),
