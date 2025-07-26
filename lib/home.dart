@@ -114,62 +114,93 @@ class _HomeeState extends State<Homee> {
             itemCount: studentdata.length,
             itemBuilder: (context, index) {
               return ListTile(
-                trailing: Row(mainAxisSize: MainAxisSize.min,
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    IconButton(onPressed: () {
-                      usernamecontroller.text=studentdata[index]["Username"];
-                      emailcontroller.text=studentdata[index]["Email"];
-                      phonenumbercontroller.text=studentdata[index]["phonenumber"];
-                      showModalBottomSheet(context: context, builder: (context) {
-                      return Column(children: [ TextFormField(
-                      controller: emailcontroller,
-
-                      decoration: InputDecoration(
-                        fillColor: const Color.fromARGB(185, 142, 157, 164),
-                        filled: true,
-                        
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      controller: usernamecontroller,
-
-                      decoration: InputDecoration(
-                        fillColor: const Color.fromARGB(185, 142, 157, 164),
-                        filled: true,
-                      
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      controller: phonenumbercontroller,
-
-                      decoration: InputDecoration(
-                        fillColor: const Color.fromARGB(185, 142, 157, 164),
-                        filled: true,
-                       
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    ElevatedButton(
+                    IconButton(
                       onPressed: () {
-                        update(studentdata[index].id,
-                         usernamecontroller.text,
-                         emailcontroller.text,
-                         phonenumbercontroller.text,
-                         context,
+                        usernamecontroller.text =
+                            studentdata[index]["Username"];
+                        emailcontroller.text = studentdata[index]["Email"];
+                        phonenumbercontroller.text =
+                            studentdata[index]["phonenumber"];
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return Column(
+                              children: [
+                                TextFormField(
+                                  controller: emailcontroller,
+
+                                  decoration: InputDecoration(
+                                    fillColor: const Color.fromARGB(
+                                      185,
+                                      142,
+                                      157,
+                                      164,
+                                    ),
+                                    filled: true,
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                                TextFormField(
+                                  controller: usernamecontroller,
+
+                                  decoration: InputDecoration(
+                                    fillColor: const Color.fromARGB(
+                                      185,
+                                      142,
+                                      157,
+                                      164,
+                                    ),
+                                    filled: true,
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                                TextFormField(
+                                  controller: phonenumbercontroller,
+
+                                  decoration: InputDecoration(
+                                    fillColor: const Color.fromARGB(
+                                      185,
+                                      142,
+                                      157,
+                                      164,
+                                    ),
+                                    filled: true,
+                                  ),
+                                ),
+                                
+                                SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    update(
+                                      studentdata[index].id,
+                                      usernamecontroller.text,
+                                      emailcontroller.text,
+                                      phonenumbercontroller.text,
+                                      context,
+                                    );
+                                  },
+                                  child: Text("update"),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blueGrey,
+                                    foregroundColor: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
                         );
                       },
-                      child: Text("update"),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueGrey,
-                        foregroundColor: Colors.black,
-                      ),
-                    ),],);
-                    },);}, icon: Icon(Icons.edit),),
-                    IconButton(onPressed: () {
-                      deletestudent(studentdata[index].id, context);
-                    }, icon: Icon(Icons.delete))
+                      icon: Icon(Icons.edit),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        deletestudent(studentdata[index].id, context);
+                      },
+                      icon: Icon(Icons.delete),
+                    ),
                   ],
                 ),
                 title: Text(studentdata[index]["Username"]),
