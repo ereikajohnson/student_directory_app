@@ -10,7 +10,7 @@ class Splash extends StatelessWidget {
     Future.delayed(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Home()),
+        MaterialPageRoute(builder: (context) => Homee()),
       );
     });
 

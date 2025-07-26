@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:student_directory_app/firebase_options.dart';
 import 'package:student_directory_app/splash.dart';
 
-void main() async{Firebase.initializeApp(
+void main() async{WidgetsFlutterBinding.ensureInitialized();
+ 
+ await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
   runApp(const MyApp());
